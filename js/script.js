@@ -1,7 +1,4 @@
 "use strict";
-const l = (x) => {
-  console.log(x);
-};
 const todoControl = document.querySelector(".todo-control");
 const headerInput = document.querySelector(".header-input");
 
@@ -17,34 +14,32 @@ const DomElement = function (selector, height, width, bg, fontSize) {
   this.fontSize = fontSize;
 };
 DomElement.prototype.createElement = function (selector) {
-    l(selector[0]);
-  const div = document.createElement('div')
-    div.style.display = `flex`;
-    div.style.justifyContent = `center`;
-    div.style.alignItems = `center`;
-    div.style.borderRadius = `50px`;
+  const div = document.createElement("div");
+  div.style.display = `flex`;
+  div.style.justifyContent = `center`;
+  div.style.alignItems = `center`;
+  div.style.borderRadius = `50px`;
   this.selector = selector.substring(1);
-l(this.selector);
   if (selector[0] == ".") {
     div.classList.add(this.selector);
-    div.style.height = `40px`
-    div.style.width = `90%`
-    div.style.background = `#333333`
-    div.style.fontSize = `18px`
-    div.style.color = `#fefefe`
-    div.style.margin= `15px auto`
-       div.innerHTML = `Этот блок с классом ${this.selector}`;
-      } else if (selector[0] == "#") {
+    div.style.height = `40px`;
+    div.style.width = `90%`;
+    div.style.background = `#333333`;
+    div.style.fontSize = `18px`;
+    div.style.color = `#fefefe`;
+    div.style.margin = `15px auto`;
+    div.innerHTML = `Этот блок с классом ${this.selector}`;
+  } else if (selector[0] == "#") {
     div.setAttribute("id", this.selector);
-     div.style.height = `80px`;
-     div.style.width = `80%`;
-     div.style.background = `#D65DB1`;
-     div.style.fontSize = `28px`;
-     div.style.color = `#FBEAFF`;
-     div.style.margin = `55px auto`;
+    div.style.height = `80px`;
+    div.style.width = `80%`;
+    div.style.background = `#D65DB1`;
+    div.style.fontSize = `28px`;
+    div.style.color = `#FBEAFF`;
+    div.style.margin = `55px auto`;
     div.innerHTML = `<p>Этот блок с идентификатором ${this.selector}</p>`;
-    }
- document.body.append(div);
+  }
+  document.body.append(div);
 };
 todoControl.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -54,9 +49,8 @@ todoControl.addEventListener("submit", function (event) {
     (valueInput !== "" && !Number(valueInput) && valueInput[0] === ".") ||
     valueInput[0] === "#"
   ) {
-    const newDomElement = new DomElement(valueInput); 
+    const newDomElement = new DomElement(valueInput);
     newDomElement.createElement(valueInput);
-    l(newDomElement);
   }
-   headerInput.value = "";
-})
+  headerInput.value = "";
+});
