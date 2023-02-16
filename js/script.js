@@ -33,7 +33,7 @@ l(this.selector);
     div.style.fontSize = `18px`
     div.style.color = `#fefefe`
     div.style.margin= `15px auto`
-       div.innerHTML = `Этот блок с классом`;
+       div.innerHTML = `Этот блок с классом ${this.selector}`;
       } else if (selector[0] == "#") {
     div.setAttribute("id", this.selector);
      div.style.height = `80px`;
@@ -42,7 +42,7 @@ l(this.selector);
      div.style.fontSize = `28px`;
      div.style.color = `#FBEAFF`;
      div.style.margin = `55px auto`;
-    div.innerHTML = `<p>Этот блок с идентификатором</p>`;
+    div.innerHTML = `<p>Этот блок с идентификатором ${this.selector}</p>`;
     }
  document.body.append(div);
 };
